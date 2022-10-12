@@ -7,17 +7,16 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 class Paddle extends Collision {
   var x = 0
   var y = 20
-  var w = 100
-  var h = 10
-
-  this.x = Gdx.input.getX() - w / 2
+  val w = 100
+  val h = 10
 
   def update(): Unit = {
     x = Gdx.input.getX() - w / 2
 
     if (Debug.debug) y = -Gdx.input.getY() + Gdx.graphics.getHeight
 
-    if (x < 0) x = 0 else if (x > Gdx.graphics.getWidth - w) x = Gdx.graphics.getWidth - w
+    x = Math.max(0, x)
+    x = Math.min(x, Gdx.graphics.getWidth - w)
   }
 
   def draw(shape: ShapeRenderer): Unit = {

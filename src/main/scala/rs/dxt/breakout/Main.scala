@@ -1,12 +1,10 @@
 package rs.dxt.breakout
 
-import com.badlogic.gdx.backends.lwjgl.{LwjglApplication, LwjglApplicationConfiguration}
+import com.badlogic.gdx.backends.lwjgl3.{Lwjgl3Application, Lwjgl3ApplicationConfiguration}
 
 object Main extends App {
-  val config = new LwjglApplicationConfiguration
-  config.title = "Breakout"
-  config.width = 800
-  config.height = 600
-  config.forceExit = true
-  new LwjglApplication(new Engine, config)
+  val config = new Lwjgl3ApplicationConfiguration
+  config.setTitle("Breakout")
+  config.setWindowSizeLimits(800, 600, 800, 600)
+  new Lwjgl3Application(new Engine, config)
 }
